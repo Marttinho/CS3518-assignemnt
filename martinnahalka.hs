@@ -15,7 +15,7 @@ inlist (y:ys) x = y == x || inlist ys x -- if first element is equal to y then t
 
 --2
 exactlyonce :: [Int] -> Int -> Bool 
-exactlyonce list n = 1 == length (filter (==n) list) --filters the list and gets all the 'n' and checks if there is exactly 1 of it. We cannot do the last one as it is infinite list, and we can never go through the whole list in this way, so we will just get an error. 
+exactlyonce list n = 1 == length (filter (==n) list) --filters the list and gets all the 'n' and checks if there is exactly 1 of it. We cannot do the last one as it is infinite list, and we can never go through the whole list in this way, so it will just keep looping forever. 
 --exactlyonce [2,3,2,4,3] 3
 --False
 --exactlyonce [1..15] 10
@@ -48,14 +48,14 @@ replacenew n (x:xs) =
   f x  : replacenew n xs  -- if actual input then applies the f(x) bellow to the list till the end
   where f x = (n-x)*(n-x)
 --replacenew 2 [3,6,9]
---[1,16,81]
+--[1,16,49]
 --replacenew 3 [2,1,7,10]
 --[1,4,16,49]
 --replacenew 2 [1..10]
 --[1,0,1,4,9,16,25,36,49,56]
 
 --5
---numb :: Int -> [Int] -> Int
+--numb :: Int -> [Int] -> Int , version with two functions
 --numb n list = foldr (+) n list
 
 --addthemup :: [[Int]] -> Int
